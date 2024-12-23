@@ -1,0 +1,28 @@
+ALTER TABLE tb_artikel
+ADD COLUMN judul_artikel_en VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+ADD COLUMN deskripsi_artikel_en LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+ADD COLUMN slug_in VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+ADD COLUMN slug_en VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+ADD COLUMN meta_title_id VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+ADD COLUMN meta_description_id VARCHAR(160) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+ADD COLUMN meta_title_en VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+ADD COLUMN meta_description_en VARCHAR(160) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL;
+
+
+UPDATE tb_artikel
+SET 
+    slug_in = judul_artikel,
+    meta_title_id = judul_artikel;
+		
+UPDATE tb_artikel
+SET 
+    meta_description_id = deskripsi_artikel;
+		
+UPDATE tb_artikel
+SET 
+    slug_en = judul_artikel_en,
+    meta_title_en = judul_artikel_en;
+		
+UPDATE tb_artikel
+SET 
+    meta_description_en = deskripsi_artikel_en;
